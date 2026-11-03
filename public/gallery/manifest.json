@@ -1,0 +1,121 @@
+{
+  "generatedAt": "2026-10-08T00:25:46.821Z",
+  "ads": {
+    "northwind-spring-sale": {
+      "poster": "/gallery/posters/northwind-spring-sale.jpg",
+      "width": 300,
+      "height": 250,
+      "format": "image"
+    },
+    "amberline-leaderboard": {
+      "poster": "/gallery/posters/amberline-leaderboard.jpg",
+      "width": 728,
+      "height": 90,
+      "format": "banner"
+    },
+    "chalkline-skyscraper": {
+      "poster": "/gallery/posters/chalkline-skyscraper.jpg",
+      "width": 160,
+      "height": 600,
+      "format": "banner"
+    },
+    "bay12-brew-story": {
+      "poster": "/gallery/posters/bay12-brew-story.jpg",
+      "width": 480,
+      "height": 270,
+      "format": "video",
+      "loop": "/gallery/loops/bay12-brew-story.webm"
+    },
+    "hoist-explainer": {
+      "poster": "/gallery/posters/hoist-explainer.jpg",
+      "width": 480,
+      "height": 270,
+      "format": "video",
+      "loop": "/gallery/loops/hoist-explainer.webm"
+    },
+    "amberline-roadtrip": {
+      "poster": "/gallery/posters/amberline-roadtrip.jpg",
+      "width": 480,
+      "height": 270,
+      "format": "video",
+      "loop": "/gallery/loops/amberline-roadtrip.webm"
+    },
+    "northwind-hover-cta": {
+      "poster": "/gallery/posters/northwind-hover-cta.jpg",
+      "width": 300,
+      "height": 250,
+      "format": "clickable"
+    },
+    "hoist-spec-sheet": {
+      "poster": "/gallery/posters/hoist-spec-sheet.jpg",
+      "width": 336,
+      "height": 280,
+      "format": "clickable"
+    },
+    "landing-embed-preview": {
+      "poster": "/gallery/posters/landing-embed-preview.jpg",
+      "width": 300,
+      "height": 250,
+      "format": "clickable"
+    },
+    "help-center-blocked": {
+      "poster": "/gallery/posters/help-center-blocked.jpg",
+      "width": 300,
+      "height": 250,
+      "format": "clickable"
+    },
+    "tire-spin": {
+      "poster": "/gallery/posters/tire-spin.jpg",
+      "width": 320,
+      "height": 420,
+      "format": "gamified",
+      "loop": "/gallery/loops/tire-spin.webm"
+    },
+    "bolt-tap": {
+      "poster": "/gallery/posters/bolt-tap.jpg",
+      "width": 320,
+      "height": 420,
+      "format": "gamified",
+      "loop": "/gallery/loops/bolt-tap.webm"
+    },
+    "style-quiz": {
+      "poster": "/gallery/posters/style-quiz.jpg",
+      "width": 320,
+      "height": 420,
+      "format": "gamified",
+      "loop": "/gallery/loops/style-quiz.webm"
+    },
+    "bay12-in-feed": {
+      "poster": "/gallery/posters/bay12-in-feed.jpg",
+      "width": 360,
+      "height": 140,
+      "format": "native"
+    },
+    "chalkline-in-article": {
+      "poster": "/gallery/posters/chalkline-in-article.jpg",
+      "width": 336,
+      "height": 280,
+      "format": "native"
+    },
+    "northwind-tool-carousel": {
+      "poster": "/gallery/posters/northwind-tool-carousel.jpg",
+      "width": 320,
+      "height": 380,
+      "format": "carousel",
+      "loop": "/gallery/loops/northwind-tool-carousel.webm"
+    },
+    "amberline-tire-carousel": {
+      "poster": "/gallery/posters/amberline-tire-carousel.jpg",
+      "width": 320,
+      "height": 380,
+      "format": "carousel",
+      "loop": "/gallery/loops/amberline-tire-carousel.webm"
+    },
+    "winter-promo-paused": {
+      "poster": "/gallery/posters/winter-promo-paused.jpg",
+      "width": 300,
+      "height": 250,
+      "format": "image"
+    }
+  }
+}

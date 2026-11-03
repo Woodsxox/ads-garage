@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+/*
+ * Design tokens. The names (bay-floor, bay-wall, chalk, hazard, torque, flag) are kept from the
+ * first version so every existing component re-skins from this one file. Read them as roles:
+ *   bay-floor  page background        bay-wall  raised surface
+ *   chalk      primary text           hazard    the accent (links, focus, active state)
+ *   torque     positive / success     flag      warning / destructive
+ */
+:root {
+  --bay-floor: #0b0b0b;
+  --bay-wall: #151515;
+  --chalk: #f2f2ef;
+  --hazard: #1eff66;
+  --torque: #50baa3;
+  --flag: #ff5a4e;
+  --line: rgb(255 255 255 / 0.1);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bay-floor: var(--bay-floor);
+  --color-bay-wall: var(--bay-wall);
+  --color-chalk: var(--chalk);
+  --color-hazard: var(--hazard);
+  --color-torque: var(--torque);
+  --color-flag: var(--flag);
+  --font-display: var(--font-inter-tight);
+  --font-body: var(--font-inter-tight);
+  --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  background: var(--bay-floor);
+  color: var(--chalk);
+  font-family: var(--font-inter-tight), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--hazard);
+  color: var(--bay-floor);
+}
+
+:focus-visible {
+  outline: 2px solid var(--hazard);
+  outline-offset: 3px;
+}
+
+/*
+ * Headings and buttons use `font-display`. Tight tracking is what makes a grotesque read as
+ * confident at large sizes, so it is set here once. These rules are unlayered on purpose: they
+ * win over the per-component `tracking-[...]` utilities left over from the first design.
+ */
+.font-display {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+/*
+ * Hairline grids: 1px lines between cells, drawn on the cells themselves rather than as a
+ * background showing through a gap. That way a row with fewer cells than columns leaves empty
+ * space instead of a grey block.
+ */
+.hairlines {
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  border-left: 1px solid rgb(255 255 255 / 0.1);
+}
+.hairlines > * {
+  box-shadow: inset -1px -1px 0 rgb(255 255 255 / 0.1);
+}
+
+/* The loader only shows when the head script marks this as the first visit of the session. */
+.ag-loader {
+  display: none;
+}
+html[data-loader="on"] .ag-loader {
+  display: grid;
+}
+
+/* Marquees: pure CSS so they cost no JavaScript, and they stop for reduced-motion users. */
+@keyframes ag-marquee-x {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes ag-marquee-y {
+  to {
+    transform: translateY(-50%);
+  }
+}
+.ag-marquee-x {
+  animation: ag-marquee-x var(--ag-duration, 60s) linear infinite;
+}
+.ag-marquee-y {
+  animation: ag-marquee-y var(--ag-duration, 80s) linear infinite;
+}
+.ag-marquee-reverse {
+  animation-direction: reverse;
+}
+.ag-marquee:hover .ag-marquee-x,
+.ag-marquee:hover .ag-marquee-y,
+.ag-marquee:focus-within .ag-marquee-x,
+.ag-marquee:focus-within .ag-marquee-y {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  .ag-marquee-x,
+  .ag-marquee-y {
+    animation: none;
+  }
+  .ag-loader {
+    display: none !important;
+  }
+}

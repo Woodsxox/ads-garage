@@ -1,0 +1,42 @@
+# Local PostgreSQL, and optionally the API in a container.
+#
+#   docker compose up -d db                 # just the database; run the API with `npm run start:dev`
+#   docker compose --profile app up --build # database and API
+#
+# This file is for local development: it lets the API create tables itself (DATABASE_SYNCHRONIZE).
+# Production uses migrations. See README.md.
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: ads_garage
+      POSTGRES_PASSWORD: ads_garage
+      POSTGRES_DB: ads_garage
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ads_garage -d ads_garage"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    profiles: ["app"]
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "4000:4000"
+    environment:
+      NODE_ENV: development
+      PORT: "4000"
+      DATABASE_URL: postgres://ads_garage:ads_garage@db:5432/ads_garage
+      DATABASE_SYNCHRONIZE: "true"
+      APP_URL: http://localhost:3000
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:?Set JWT_ACCESS_SECRET (32+ characters) in your shell or a .env file}
+
+volumes:
+  pgdata:
